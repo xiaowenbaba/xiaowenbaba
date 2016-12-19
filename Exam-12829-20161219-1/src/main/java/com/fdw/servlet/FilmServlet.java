@@ -65,6 +65,7 @@ public class FilmServlet extends HttpServlet {
 		int result=filmDAO.deleteById(film);
 		request.getRequestDispatcher("/FilmServlet?action=showAllFilm").forward(request, response);
 		} catch (Exception e) {
+			printWriter.println("数据发生错误！请稍后再试~~~");
 			e.printStackTrace();
 		}
 	}
