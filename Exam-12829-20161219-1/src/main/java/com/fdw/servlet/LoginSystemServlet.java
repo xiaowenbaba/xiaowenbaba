@@ -31,11 +31,11 @@ public class LoginSystemServlet extends HttpServlet {
 		String name =request.getParameter("name");
 		UserLogin  userLogin  = new UserLogin();
 		Customer  customer  = new Customer();
-		request.setAttribute("name",name);
 		customer.setFirstName(name);
 		try {
 			List<Customer> list =userLogin.login(customer);
 			if(list.size()>0&&!list.isEmpty()){
+				request.getSession().setAttribute("name", name);
 				request.getRequestDispatcher("/jsp/loginSystem/seccessLogin.jsp").forward(request, response);
 			}else{
 				 String string   ="登陆失败!请重新输入Name";

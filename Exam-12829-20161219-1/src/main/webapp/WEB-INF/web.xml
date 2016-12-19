@@ -19,7 +19,9 @@
   <filter-mapping>
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/LoginSystemServlet</url-pattern>
+    <url-pattern>/FilmServlet</url-pattern>
     <url-pattern>/jsp/loginSystem/*</url-pattern>
+     <url-pattern>/jsp/Film/*</url-pattern>
   </filter-mapping>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
