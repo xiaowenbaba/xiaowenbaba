@@ -1,6 +1,7 @@
 package com.fdw.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -58,21 +59,14 @@ public class FilmServlet extends HttpServlet {
 			Integer film_id=Integer.valueOf(fString);
 			film.setFilm_id(film_id);
 		}
+		PrintWriter printWriter=response.getWriter();
 		FilmDAO filmDAO = new FilmDAO();
 		try {
 		int result=filmDAO.deleteById(film);
-		
 		request.getRequestDispatcher("/FilmServlet?action=showAllFilm").forward(request, response);
-		
-		if(result>0){
-			System.out.println("删除成功！");
-		}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 	}
 	protected void selectById(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

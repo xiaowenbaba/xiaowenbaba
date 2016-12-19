@@ -8,5 +8,6 @@
 </head>
 <body>
 登陆成功!
+<a href="<%=request.getContextPath()%>">返回功能界面</a>
 </body>
 </html>

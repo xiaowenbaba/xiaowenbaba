@@ -17,7 +17,7 @@ public class FilmDAO {
 		System.out.println(sql);
 	return 	JdbcTemplate.queryData(sql, null,Film.class);
 	}
-	public int deleteById(Film film) throws SQLException {
+	public int deleteById(Film film) throws Exception {
 		String sql ="delete from film where film_id = ?";
 		return  JdbcTemplate.insertOrUpdateOrDelete2(sql, new Object[]{film.getFilm_id()});
 	}
